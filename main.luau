@@ -1,16 +1,16 @@
--- Aura Exchange: download only the selected aura. Release eden4.
+-- Aura Exchange: download only the selected aura. Release ill-walk1.
 local env=getgenv()
-local ASSET_BASE_URL=(env.AuraExchangeAssetBaseURL or "https://raw.githubusercontent.com/iwsksownw666/aura-exchange/eden4-publish-v1/versions/eden4"):gsub('/+$','')
-local ownerByKey={["ASTRAIOS.json"]="ASTRAIOS",["animations/animation_98572784316773.json"]="ASTRAIOS",["ASTRAIOS_motion.json"]=false,["Monarch.json"]="Monarch",["animations/animation_118289001826286.json"]="Monarch",["Monarch_motion.json"]=false,["LEVIATHAN.json"]="LEVIATHAN",["animations/animation_132979577139811.json"]="LEVIATHAN",["LEVIATHAN_motion.json"]=false,["Tomorrow.json"]="Tomorrow",["animations/animation_113180536437121.json"]="Tomorrow",["Tomorrow_motion.json"]=false,["Oppression.json"]="Oppression",["animations/animation_101709109117549.json"]="Oppression",["Oppression_motion.json"]=false,["Lamenthyr.json"]="Lamenthyr",["animations/animation_86458494810549.json"]="Lamenthyr",["Lamenthyr_motion.json"]=false,["Eden.json"]="Eden",["animations/animation_130650435171934.json"]="Eden",["animations/animation_123533160693559.json"]="Eden",["animations/animation_79203569562321.json"]="Eden",["animations/animation_112827361961722.json"]="Eden",["animations/animation_93827508197083.json"]="Eden",["animations/animation_104263600793152.json"]="Eden",["animations/animation_110001831807332.json"]="Eden",["animations/animation_88049392229031.json"]="Eden",["animations/animation_97363310076806.json"]="Eden",["animations/animation_97526758956302.json"]="Eden",["animations/animation_128165251424306.json"]="Eden",["animations/animation_104862778157563.json"]="Eden",["animations/animation_76984492261316.json"]="Eden",["animations/animation_95569306173367.json"]="Eden",["Eden_motion.json"]=false}
-local bundles={["ASTRAIOS"]={["path"]="auras/ASTRAIOS.json",["bytes"]=6000081},["Monarch"]={["path"]="auras/Monarch.json",["bytes"]=2325310},["LEVIATHAN"]={["path"]="auras/LEVIATHAN.json",["bytes"]=4734101},["Tomorrow"]={["path"]="auras/Tomorrow.json",["bytes"]=3043787},["Oppression"]={["path"]="auras/Oppression.json",["bytes"]=1341773},["Lamenthyr"]={["path"]="auras/Lamenthyr.json",["bytes"]=4811515},["Eden"]={["path"]="auras/Eden.json",["bytes"]=4297520}}
+local ASSET_BASE_URL=(env.AuraExchangeAssetBaseURL or "https://raw.githubusercontent.com/iwsksownw666/aura-exchange/ill-walk1-publish-v1/versions/ill-walk1"):gsub('/+$','')
+local ownerByKey={["ASTRAIOS.json"]="ASTRAIOS",["animations/animation_98572784316773.json"]="ASTRAIOS",["ASTRAIOS_motion.json"]=false,["Monarch.json"]="Monarch",["animations/animation_118289001826286.json"]="Monarch",["Monarch_motion.json"]=false,["LEVIATHAN.json"]="LEVIATHAN",["animations/animation_132979577139811.json"]="LEVIATHAN",["LEVIATHAN_motion.json"]=false,["Tomorrow.json"]="Tomorrow",["animations/animation_113180536437121.json"]="Tomorrow",["Tomorrow_motion.json"]=false,["Oppression.json"]="Oppression",["animations/animation_101709109117549.json"]="Oppression",["Oppression_motion.json"]=false,["Lamenthyr.json"]="Lamenthyr",["animations/animation_86458494810549.json"]="Lamenthyr",["Lamenthyr_motion.json"]=false,["Eden.json"]="Eden",["animations/animation_130650435171934.json"]="Eden",["animations/animation_123533160693559.json"]="Eden",["animations/animation_79203569562321.json"]="Eden",["animations/animation_112827361961722.json"]="Eden",["animations/animation_93827508197083.json"]="Eden",["animations/animation_104263600793152.json"]="Eden",["animations/animation_110001831807332.json"]="Eden",["animations/animation_88049392229031.json"]="Eden",["animations/animation_97363310076806.json"]="Eden",["animations/animation_97526758956302.json"]="Eden",["animations/animation_128165251424306.json"]="Eden",["animations/animation_104862778157563.json"]="Eden",["animations/animation_76984492261316.json"]="Eden",["animations/animation_95569306173367.json"]="Eden",["Eden_motion.json"]=false,["Illusionary.json"]="Illusionary",["animations/animation_109536481760521.json"]="Illusionary",["animations/animation_135387970626232.json"]="Illusionary",["Illusionary_motion.json"]=false}
+local bundles={["ASTRAIOS"]={["path"]="auras/ASTRAIOS.json",["bytes"]=6000085},["Monarch"]={["path"]="auras/Monarch.json",["bytes"]=2325314},["LEVIATHAN"]={["path"]="auras/LEVIATHAN.json",["bytes"]=4734105},["Tomorrow"]={["path"]="auras/Tomorrow.json",["bytes"]=3043791},["Oppression"]={["path"]="auras/Oppression.json",["bytes"]=1341777},["Lamenthyr"]={["path"]="auras/Lamenthyr.json",["bytes"]=4811519},["Eden"]={["path"]="auras/Eden.json",["bytes"]=4297524},["Illusionary"]={["path"]="auras/Illusionary.json",["bytes"]=4207849}}
 local decoded,loaded,loading={},{},{}
-local stats={version="eden4",downloads=0,bytes=0,cacheHits=0,attempts=0,fallbacks=0,packages={}}
+local stats={version="ill-walk1",downloads=0,bytes=0,cacheHits=0,attempts=0,fallbacks=0,packages={}}
 local Http=game:GetService('HttpService')
 local function fetch(relative,expectedBytes)
  local urls={ASSET_BASE_URL..'/'..relative}
  if not env.AuraExchangeAssetBaseURL then
   urls[1]..='?download=1'
-  table.insert(urls,"https://cdn.jsdelivr.net/gh/iwsksownw666/aura-exchange@eden4-publish-v1/versions/eden4/"..relative)
+  table.insert(urls,"https://cdn.jsdelivr.net/gh/iwsksownw666/aura-exchange@ill-walk1-publish-v1/versions/ill-walk1/"..relative)
  end
  local lastError
  for index,url in ipairs(urls)do
@@ -38,7 +38,7 @@ local function ensureBundle(owner)
  local ok,err=pcall(function()
   local info=assert(bundles[owner],'Unknown aura bundle: '..tostring(owner))
   local package=fetch(info.path,info.bytes)
-  assert(package.format=='AuraExchangeBundle/1'and package.version=="eden4"and package.name==owner and type(package.files)=='table','Aura bundle version mismatch: '..owner)
+  assert(package.format=='AuraExchangeBundle/1'and package.version=="ill-walk1"and package.name==owner and type(package.files)=='table','Aura bundle version mismatch: '..owner)
   local pending={}
   for key,expectedOwner in pairs(ownerByKey)do if expectedOwner==owner then
    local value=package.files[key]
@@ -317,11 +317,104 @@ return Controller
 
 end)()
 -- END_EDEN_CONTROLLER
-local Module={Names={'ASTRAIOS','Monarch','LEVIATHAN','Tomorrow.','Oppression','Lamenthyr','Eden'},Version='2026-10-25-eden4'}
+-- BEGIN_ILLUSIONARY_CONTROLLER
+local IllusionaryController=(function()
+-- Original captured skill callbacks; no server-owned damage or skill remotes.
+local Controller={}
+Controller.Skills={
+ {name='you belong here.',key='F',duration=3.3},
+ {name='wake up.',key='E',duration=2},
+ {name='no, not yet.',key='R',duration=2.5},
+ {name='you are a puppet.',key='V',duration=3.5},
+}
+function Controller.install(h,skills,ui)
+ local CAS=game:GetService('ContextActionService')
+ local UIS=game:GetService('UserInputService')
+ local token=0
+ local active,thread
+ local cooldowns={}
+ h.IllusionarySkills=Controller.Skills
+ h.IllusionarySkillStats={casts={},completed=0}
+ local root=ui._AuraRoot
+ root.Name='AuraExchange_IllusionaryNativeSkills';root:SetAttribute('AuraExchangeUI',true)
+ h.IllusionaryNativeSkillRoot=root;h.IllusionaryNativeSkillUI=ui
+ table.insert(h.Created,root)
+ for _,other in ipairs(root.Parent:GetChildren())do
+  if other~=root and other:IsA('Frame')and other.Position==UDim2.fromScale(.99,.9)and other.Size==UDim2.fromScale(.2,.03)then
+   local aspect=other:FindFirstChildOfClass('UIAspectRatioConstraint')
+   if aspect and math.abs(aspect.AspectRatio-13.476)<.01 then
+    local visible=other.Visible;other.Visible=false
+    table.insert(h.Cleanups,function()if other.Parent then other.Visible=visible end end)
+   end
+  end
+ end
+ local function update()
+  for _,entry in ipairs(Controller.Skills)do
+   if active or(cooldowns[entry.name]or 0)>os.clock()then ui:SetDisabled(entry.name)else ui:SetEnabled(entry.name)end
+  end
+ end
+ function h:CancelIllusionarySkill()
+  token+=1
+  if thread and thread~=coroutine.running()then pcall(task.cancel,thread)end
+  if active then pcall(skills[active].Cancel)end
+  thread=nil;active=nil;self.ActiveIllusionarySkill=nil
+  for _,x in ipairs(self.Created)do if x:IsA('ImageLabel')and x.Name=='ScreenFX'and x.Parent then x:Destroy()end end
+  if self.Alive then update()end
+ end
+ function h:CastIllusionarySkill(name,settings)
+  settings=settings or {}
+  if not self.Alive then return false,'stopped'end
+  local entry
+  for _,candidate in ipairs(Controller.Skills)do if candidate.name==name or candidate.key==name then entry=candidate;break end end
+  if not entry then return false,'unknown skill'end
+  if active then return false,'busy'end
+  if not settings.IgnoreCooldown and(cooldowns[entry.name]or 0)>os.clock()then return false,'cooldown'end
+  token+=1;local castToken=token
+  active=entry.name;self.ActiveIllusionarySkill=active
+  cooldowns[active]=os.clock()+entry.duration+.2
+  ui:UpdateItem(active,workspace:GetServerTimeNow()+entry.duration+.2,entry.duration+.2)
+  self.IllusionarySkillStats.casts[active]=(self.IllusionarySkillStats.casts[active]or 0)+1
+  update()
+  thread=task.defer(function()
+   local ok,err=pcall(skills[entry.name].Activate)
+   pcall(skills[entry.name].Cancel)
+   if not ok then table.insert(self.Errors,{property='IllusionarySkill:'..entry.name,error=tostring(err)})end
+   if self.Alive and token==castToken then
+    active=nil;thread=nil;self.ActiveIllusionarySkill=nil
+    self.IllusionarySkillStats.completed+=1;update()
+   end
+  end)
+  table.insert(self.Threads,thread)
+  return true
+ end
+ for index,entry in ipairs(Controller.Skills)do
+  local action='AuraExchange_Illusionary_'..entry.key
+  CAS:BindActionAtPriority(action,function(_,state)
+   if UIS:GetFocusedTextBox()then return Enum.ContextActionResult.Pass end
+   if state==Enum.UserInputState.Begin then h:CastIllusionarySkill(entry.name)end
+   return Enum.ContextActionResult.Sink
+  end,UIS.TouchEnabled,3000,Enum.KeyCode[entry.key],skills[entry.name].ConsoleKeyCode)
+  table.insert(h.Cleanups,function()CAS:UnbindAction(action)end)
+  if UIS.TouchEnabled then
+   CAS:SetPosition(action,UDim2.new(1,-220+(index-1)%2*98,1,-245-math.floor((index-1)/2)*58))
+   CAS:SetTitle(action,entry.name)
+  end
+  ui:AddItem(Enum.KeyCode[entry.key],entry.name,0,0)
+ end
+ local heartbeat=game:GetService('RunService').Heartbeat:Connect(function()if h.Alive then update()end end)
+ table.insert(h.Connections,heartbeat)
+ table.insert(h.Cleanups,function()h:CancelIllusionarySkill();ui:ClearItems()end)
+end
+return Controller
+
+end)()
+-- END_ILLUSIONARY_CONTROLLER
+
+local Module={Names={'ASTRAIOS','Monarch','LEVIATHAN','Tomorrow.','Oppression','Lamenthyr','Eden','Illusionary'},Version='2026-10-25-ill-walk1'}
 local environment=getgenv()
 environment.__AuraExchangeOwnership=environment.__AuraExchangeOwnership or setmetatable({},{__mode='k'})
 local ownership=environment.__AuraExchangeOwnership
-local bodyAnimations={ASTRAIOS='98572784316773',Monarch='118289001826286',LEVIATHAN='132979577139811',['Tomorrow.']='113180536437121',Oppression='101709109117549',Lamenthyr='86458494810549',Eden='130650435171934'}
+local bodyAnimations={ASTRAIOS='98572784316773',Monarch='118289001826286',LEVIATHAN='132979577139811',['Tomorrow.']='113180536437121',Oppression='101709109117549',Lamenthyr='86458494810549',Eden='130650435171934',Illusionary='109536481760521'}
 local bodyJoints={Torso={'HumanoidRootPart','RootJoint'},Head={'Torso','Neck'},['Left Arm']={'Torso','Left Shoulder'},['Right Arm']={'Torso','Right Shoulder'},['Left Leg']={'Torso','Left Hip'},['Right Leg']={'Torso','Right Hip'}}
 local function enum(s)
  local group,name=s:match('^Enum%.([^%.]+)%.(.+)$')
@@ -360,6 +453,7 @@ local skip={Parent=true,Source=true,Disabled=true,Enabled=true,RunContext=true,S
 for _,k in ipairs({'AttributesSerialize','Tags','DefinesCapabilities','NeedsPivotMigration','EquippedEmotesDataInternal','TexturePackMetadata','EmotesDataInternal','RootPart','InertiaMigrated','ModelMeshCFrame','ScaleFactor','SlimHash','ModelMeshData','Health_XML','InternalBodyScale','LocalizedText','GuiState','OpenTypeFeaturesError','ModelMeshSize','FluidFidelityInternal','VertexCount','InternalHeadScale','AeroMeshData','CameraCFrame','CameraFieldOfView','ViewportSize','NearPlaneZ'}) do skip[k]=true end
 skip.Position=nil;skip.Orientation=nil;skip.Rotation=nil
 local partAliases={Position=true,Orientation=true,Rotation=true}
+for _,key in ipairs({'IsReady','TimeLength','Connected','RmsLevel','PeakLevel'})do skip[key]=true end
 local mappedBodies={Head=true,Torso=true,HumanoidRootPart=true,['Left Arm']=true,['Right Arm']=true,['Left Leg']=true,['Right Leg']=true}
 local normalAttachments={RootAttachment=true,NeckAttachment=true,BodyFrontAttachment=true,BodyBackAttachment=true,LeftCollarAttachment=true,RightCollarAttachment=true,WaistBackAttachment=true,WaistCenterAttachment=true,WaistFrontAttachment=true,FaceCenterAttachment=true,FaceFrontAttachment=true,HairAttachment=true,HatAttachment=true,LeftFootAttachment=true,RightFootAttachment=true,LeftGripAttachment=true,LeftShoulderAttachment=true,RightGripAttachment=true,RightShoulderAttachment=true}
 local normalMotors={RootJoint=true,Neck=true,['Left Shoulder']=true,['Right Shoulder']=true,['Left Hip']=true,['Right Hip']=true}
@@ -518,8 +612,14 @@ function Module.new(base,readData)
      end
     end
     for k,p in pairs(n.attributes or {}) do pcall(function()obj:SetAttribute(k,decode(p,objects)) end) end
+    if name=='Illusionary'and obj:IsA('TextLabel')and obj:GetAttribute('OriginalPosition')then
+     obj.Position=obj:GetAttribute('OriginalPosition');obj.TextTransparency=0;obj.TextColor3=Color3.new(1,1,1)
+    end
     for _,tag in ipairs(n.tags or {}) do pcall(function()game:GetService('CollectionService'):AddTag(obj,tag) end) end
     if obj:IsA('GuiBase2d') then obj.AutoLocalize=false end
+    if obj:IsA('TextLabel')or obj:IsA('TextButton')or obj:IsA('TextBox')then
+     local font=n.props.FontFace;if font then obj.FontFace=decode(font,objects)end
+    end
    end
   end
   local dependencyFolders={}
@@ -687,7 +787,7 @@ function Module.new(base,readData)
     local connection=RunService.PreSimulation:Connect(function()
      if not self.Alive then return end
      local state=humanoid and humanoid:GetState()
-     local moving=name~='Eden' and options.PreserveLocomotion~=false and humanoid~=nil and (humanoid.MoveDirection.Magnitude>0.05 or state==Enum.HumanoidStateType.Jumping or state==Enum.HumanoidStateType.Freefall or state==Enum.HumanoidStateType.Climbing or state==Enum.HumanoidStateType.Swimming or state==Enum.HumanoidStateType.Seated)
+     local moving=name~='Eden' and options.PreserveLocomotion==true and humanoid~=nil and (humanoid.MoveDirection.Magnitude>0.05 or state==Enum.HumanoidStateType.Jumping or state==Enum.HumanoidStateType.Freefall or state==Enum.HumanoidStateType.Climbing or state==Enum.HumanoidStateType.Swimming or state==Enum.HumanoidStateType.Seated)
      if self.BodyPoseSuspended~=moving then
       self.BodyPoseSuspended=moving
       for _,entry in ipairs(name=='Eden' and {} or self.BodyTracks)do
@@ -840,6 +940,7 @@ function Module.new(base,readData)
     return v
    end})
    local sourceByObject,moduleCache,loading={},{},{}
+   local nativeRootId=data.edenNativeUIRoot or data.illusionaryNativeUIRoot
    for _,node in ipairs(data.nodes) do if objects[node.id] and node.source then sourceByObject[objects[node.id]]=node end end
    local managedRequire,makeEnvironment
    local function compileSource(node)
@@ -853,12 +954,24 @@ function Module.new(base,readData)
      assert(changes==1,'Oppression floor source anchor missing')
      self.FloorScriptAdapted=true
     end
-    if name=='Eden' then
-     if node.id==data.edenNativeUIRoot then
+    if name=='Illusionary' and node.name=='MainScript' then
+     executable=executable:gsub('coroutine%.wrap%(','__AuraWrap(')
+     executable=executable:gsub('script%.AncestryChanged:Once%(','__AuraOnce(script.AncestryChanged, ')
+     local anchor='Parent:WaitForChild("Humanoid"):WaitForChild("Animator"):LoadAnimation(script:WaitForChild("ObjectAnimation"))'
+     local a,b=executable:find(anchor,1,true)
+     assert(a,'Illusionary animation anchor missing')
+     executable=executable:sub(1,a-1)..'__AuraObjectTrack()'..executable:sub(b+1)
+    end
+    if name=='Illusionary' and node.id==data.illusionarySkillRoot then
+     executable=executable:gsub('require%(Modules:WaitForChild%("CameraShaker"%)%)','__AuraCameraShaker')
+     executable=executable:gsub('script:WaitForChild%("ScreenFX"%):Clone%(%)','__AuraClone(script:WaitForChild("ScreenFX"))')
+    end
+    if name=='Eden' or name=='Illusionary' then
+     if node.id==nativeRootId then
       executable=executable:gsub('Class%(script:WaitForChild%("Item"%)%)','Class(__AuraNativeSkillItem)')
       executable=executable:gsub('return v1;','v1._AuraRoot=u7;v1._AuraItems=u2;return v1;')
-     elseif parent and parent.id==data.edenNativeUIRoot then
-      executable=executable:gsub('ContextActionService:GetButton%(u28.SkillName%)','ContextActionService:GetButton("AuraExchange_Eden_" .. u28.KeyCode.Name)')
+     elseif parent and parent.id==nativeRootId then
+      executable=executable:gsub('ContextActionService:GetButton%(u28.SkillName%)','__AuraTouchButton(u28.KeyCode)')
       executable=executable:gsub('Class%(Components:WaitForChild%("Corner"%)%)','Class(__AuraNativeCorner)')
       executable=executable:gsub('Class%(Components:WaitForChild%("Shadow"%)%)','Class(__AuraNativeShadow)')
      end
@@ -884,6 +997,26 @@ function Module.new(base,readData)
    end
    makeEnvironment=function(obj)
     return setmetatable({script=obj,game=realGame,task=taskProxy,wait=task.wait,spawn=taskProxy.spawn,delay=taskProxy.delay,require=managedRequire,__AuraRunService=rsProxy,
+     __AuraObjectTrack=function()
+      for index,t in ipairs(data.tracks or {})do if t.id:match('%d+')=='135387970626232'then
+       local deadline=os.clock()+10
+       while self.Alive and not(self.Tracks and self.Tracks[index])and os.clock()<deadline do task.wait()end
+       return assert(self.Tracks and self.Tracks[index],'Illusionary object track missing')
+      end end
+      error('Illusionary object track was not captured')
+     end,
+     __AuraTouchButton=function(key)
+      local cas=game:GetService('ContextActionService');local action='AuraExchange_'..(name=='Illusionary'and 'Illusionary'or 'Eden')..'_'..key.Name
+      local button=cas:GetButton(action);local deadline=os.clock()+3
+      while self.Alive and not button and os.clock()<deadline do task.wait();button=cas:GetButton(action)end
+      return assert(button,'Touch skill button missing: '..action)
+     end,
+     __AuraCameraShaker={new=function(...)
+      local shaker=require(game.ReplicatedStorage.Modules.CameraShaker).new(...)
+      self.RenderBindings[shaker._renderName]=true
+      table.insert(self.Cleanups,function()shaker:Stop()end)
+      return shaker
+     end},
      __AuraConnect=function(signal,fn)return connect(signal,fn,false)end,
      __AuraOnce=function(signal,fn)return connect(signal,fn,true)end,
      __AuraWrap=function(fn)return function(...)return taskProxy.spawn(fn,...)end end,
@@ -903,11 +1036,11 @@ function Module.new(base,readData)
     assert(not loading[obj],'circular captured module: '..obj.Name);loading[obj]=true
     local fn,err=compileSource(node);assert(fn,err)
     local env=makeEnvironment(obj)
-    if name=='Eden' and node.parent==data.edenNativeUIRoot then
+    if node.parent==nativeRootId then
      env.__AuraNativeCorner=require(game.ReplicatedStorage.Modules.UI.Components.Corner)
      env.__AuraNativeShadow=require(game.ReplicatedStorage.Modules.UI.Components.Shadow)
     end
-    if node.id==data.edenNativeUIRoot then env.__AuraNativeSkillItem=managedRequire(obj:FindFirstChild('Item'))end
+    if node.id==nativeRootId then env.__AuraNativeSkillItem=managedRequire(obj:FindFirstChild('Item'))end
     setfenv(fn,env)
     local result=fn();assert(result~=nil,'captured module returned nil: '..obj.Name)
     moduleCache[obj]=result;loading[obj]=nil;return result
@@ -946,13 +1079,19 @@ function Module.new(base,readData)
     local parent=data.nodes[n.parent or 0];local obj=objects[n.id]
     local managedTomorrow=name=='Tomorrow.' and (n.name=='ClientBoot' or n.name=='InitLensFlare' or data.dependencyNodes[tostring(n.id)])
     local managedEden=name=='Eden' and (n.name=='AnimationPlayer' or data.dependencyNodes[tostring(n.id)])
-    if obj and obj:IsA('BaseScript') and not managedTomorrow and not managedEden and n.source and #n.source>30 and parent and parent.id~=1 and parent.class~='LocalScript' and n.name~='Animator' then
+    local managedIllusionary=name=='Illusionary' and data.dependencyNodes[tostring(n.id)]
+    if obj and obj:IsA('BaseScript') and not managedTomorrow and not managedEden and not managedIllusionary and n.source and #n.source>30 and parent and parent.id~=1 and parent.class~='LocalScript' and n.name~='Animator' then
      local fn,err=compileSource(n)
      if fn then
       setfenv(fn,makeEnvironment(obj))
       table.insert(self.Threads,task.spawn(function()local ok,e=pcall(fn);if not ok then errorItem(n.id,'EffectScript',e) end end))
      else errorItem(n.id,'EffectCompile',err) end
     end
+   end
+   if name=='Illusionary' and target==game.Players.LocalPlayer.Character then
+    local skills=managedRequire(objects[data.illusionarySkillRoot])
+    local ui=managedRequire(objects[data.illusionaryNativeUIRoot])
+    IllusionaryController.install(self,skills,ui)
    end
    if name=='Eden' then
     local ui=objects[205]
@@ -1014,13 +1153,13 @@ return Module
 
 end)()
 -- Fetch first; a failed initial download leaves the previous running manager intact.
-ensureBundle('Eden')
+ensureBundle('Illusionary')
 if type(env.exchang_aura)=='function'then pcall(env.exchang_aura,'None')end
 if env.AuraExchangeManager then pcall(function()env.AuraExchangeManager:Clear()end)end
 local manager=Module.new('remote',readData)
 env.AuraExchangeManager=manager
 env.AuraExchangeReleaseStats=stats
-env.ExchangeAuraNames={'None','ASTRAIOS','Monarch','LEVIATHAN','Tomorrow.','Oppression','Lamenthyr','Eden'}
+env.ExchangeAuraNames={'None','ASTRAIOS','Monarch','LEVIATHAN','Tomorrow.','Oppression','Lamenthyr','Eden','Illusionary'}
 local requestSerial=0
 env.exchang_aura=function(name)
  requestSerial+=1;local serial=requestSerial
@@ -1036,6 +1175,11 @@ env.exchang_eden_skill=function(name,settings)
  if not h or h.Name~='Eden'then return false,'Eden is not active'end
  return h:CastEdenSkill(name,settings)
 end
-env.exchang_aura('Eden')
+env.exchang_illusionary_skill=function(name,settings)
+ local h=manager.Active
+ if not h or h.Name~='Illusionary'then return false,'Illusionary is not active'end
+ return h:CastIllusionarySkill(name,settings)
+end
+env.exchang_aura('Illusionary')
 return manager
--- AURA_EXCHANGE_COMPLETE_eden4
+-- AURA_EXCHANGE_COMPLETE_ill_walk1
