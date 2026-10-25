@@ -295,9 +295,11 @@
       "fileCount": 15
     }
   ],
-  "entryBytes": 62648,
+  "entryBytes": 62704,
   "entryReductionPercent": 99.84,
   "initialResourceBytes": 4297520,
-  "totalInitialBytes": 4360168,
-  "assetCount": 34
+  "totalInitialBytes": 4360224,
+  "assetCount": 34,
+  "releaseTag": "eden4-publish-v1",
+  "loaderBytes": 714
 }

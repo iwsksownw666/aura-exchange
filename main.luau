@@ -1,6 +1,6 @@
 -- Aura Exchange: download only the selected aura. Release eden4.
 local env=getgenv()
-local ASSET_BASE_URL=(env.AuraExchangeAssetBaseURL or "https://raw.githubusercontent.com/iwsksownw666/aura-exchange/main/versions/eden4"):gsub('/+$','')
+local ASSET_BASE_URL=(env.AuraExchangeAssetBaseURL or "https://raw.githubusercontent.com/iwsksownw666/aura-exchange/eden4-publish-v1/versions/eden4"):gsub('/+$','')
 local ownerByKey={["ASTRAIOS.json"]="ASTRAIOS",["animations/animation_98572784316773.json"]="ASTRAIOS",["ASTRAIOS_motion.json"]=false,["Monarch.json"]="Monarch",["animations/animation_118289001826286.json"]="Monarch",["Monarch_motion.json"]=false,["LEVIATHAN.json"]="LEVIATHAN",["animations/animation_132979577139811.json"]="LEVIATHAN",["LEVIATHAN_motion.json"]=false,["Tomorrow.json"]="Tomorrow",["animations/animation_113180536437121.json"]="Tomorrow",["Tomorrow_motion.json"]=false,["Oppression.json"]="Oppression",["animations/animation_101709109117549.json"]="Oppression",["Oppression_motion.json"]=false,["Lamenthyr.json"]="Lamenthyr",["animations/animation_86458494810549.json"]="Lamenthyr",["Lamenthyr_motion.json"]=false,["Eden.json"]="Eden",["animations/animation_130650435171934.json"]="Eden",["animations/animation_123533160693559.json"]="Eden",["animations/animation_79203569562321.json"]="Eden",["animations/animation_112827361961722.json"]="Eden",["animations/animation_93827508197083.json"]="Eden",["animations/animation_104263600793152.json"]="Eden",["animations/animation_110001831807332.json"]="Eden",["animations/animation_88049392229031.json"]="Eden",["animations/animation_97363310076806.json"]="Eden",["animations/animation_97526758956302.json"]="Eden",["animations/animation_128165251424306.json"]="Eden",["animations/animation_104862778157563.json"]="Eden",["animations/animation_76984492261316.json"]="Eden",["animations/animation_95569306173367.json"]="Eden",["Eden_motion.json"]=false}
 local bundles={["ASTRAIOS"]={["path"]="auras/ASTRAIOS.json",["bytes"]=6000081},["Monarch"]={["path"]="auras/Monarch.json",["bytes"]=2325310},["LEVIATHAN"]={["path"]="auras/LEVIATHAN.json",["bytes"]=4734101},["Tomorrow"]={["path"]="auras/Tomorrow.json",["bytes"]=3043787},["Oppression"]={["path"]="auras/Oppression.json",["bytes"]=1341773},["Lamenthyr"]={["path"]="auras/Lamenthyr.json",["bytes"]=4811515},["Eden"]={["path"]="auras/Eden.json",["bytes"]=4297520}}
 local decoded,loaded,loading={},{},{}
@@ -10,7 +10,7 @@ local function fetch(relative,expectedBytes)
  local urls={ASSET_BASE_URL..'/'..relative}
  if not env.AuraExchangeAssetBaseURL then
   urls[1]..='?download=1'
-  table.insert(urls,"https://cdn.jsdelivr.net/gh/iwsksownw666/aura-exchange@main/versions/eden4/"..relative)
+  table.insert(urls,"https://cdn.jsdelivr.net/gh/iwsksownw666/aura-exchange@eden4-publish-v1/versions/eden4/"..relative)
  end
  local lastError
  for index,url in ipairs(urls)do
@@ -1038,3 +1038,4 @@ env.exchang_eden_skill=function(name,settings)
 end
 env.exchang_aura('Eden')
 return manager
+-- AURA_EXCHANGE_COMPLETE_eden4
