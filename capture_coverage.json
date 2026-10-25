@@ -1,0 +1,83 @@
+{
+  "excludedSelf": "iwisjdjeeiidj",
+  "auras": [
+    {
+      "key": "Hellborn",
+      "name": "Hellborn",
+      "player": "joanne_1235469",
+      "characterNodes": 1357,
+      "bundleNodes": 1468,
+      "animation": "93169902919935",
+      "animationNodes": 10266,
+      "internalReferencesResolved": 1,
+      "unresolved": [],
+      "motionFrames": 158,
+      "motionChannels": 712,
+      "unmatched": [],
+      "missingScripts": [
+        {
+          "id": 16,
+          "name": "Reset"
+        },
+        {
+          "id": 38,
+          "name": "PrimarySetter"
+        },
+        {
+          "id": 40,
+          "name": "ReplaceAccessory"
+        },
+        {
+          "id": 42,
+          "name": "ToolModes"
+        },
+        {
+          "id": 44,
+          "name": "Health"
+        }
+      ],
+      "captureErrors": [
+        "Capabilities:unsupported SecurityCapabilities"
+      ]
+    },
+    {
+      "key": "Tree_House",
+      "name": "Tree House",
+      "player": "91919191qqqoppoA5",
+      "characterNodes": 2386,
+      "bundleNodes": 2497,
+      "animation": "85141240656023",
+      "animationNodes": 81513,
+      "internalReferencesResolved": 3,
+      "unresolved": [],
+      "motionFrames": 158,
+      "motionChannels": 883,
+      "unmatched": [],
+      "missingScripts": [
+        {
+          "id": 18,
+          "name": "Reset"
+        },
+        {
+          "id": 40,
+          "name": "PrimarySetter"
+        },
+        {
+          "id": 42,
+          "name": "ReplaceAccessory"
+        },
+        {
+          "id": 44,
+          "name": "ToolModes"
+        },
+        {
+          "id": 46,
+          "name": "Health"
+        }
+      ],
+      "captureErrors": [
+        "Capabilities:unsupported SecurityCapabilities"
+      ]
+    }
+  ]
+}

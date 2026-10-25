@@ -1,0 +1,32 @@
+[
+  {
+    "error": "",
+    "file": "outputs/aura_exchange_two_20261025/AuraExchange.luau",
+    "exit": 0
+  },
+  {
+    "error": "",
+    "file": "outputs/aura_exchange_two_20261025/example_exchang_aura.luau",
+    "exit": 0
+  },
+  {
+    "error": "",
+    "file": "outputs/aura_exchange_two_20261025/exchang_aura_final.luau",
+    "exit": 0
+  },
+  {
+    "error": "",
+    "file": "outputs/aura_exchange_two_publish_20261025/main.luau",
+    "exit": 0
+  },
+  {
+    "error": "",
+    "file": "outputs/aura_exchange_two_publish_20261025/loader.luau",
+    "exit": 0
+  },
+  {
+    "error": "",
+    "file": "work/validate_other_two.luau",
+    "exit": 0
+  }
+]

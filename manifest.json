@@ -1,340 +1,396 @@
 {
   "format": "AuraExchangeRelease/1",
-  "version": "ill-fx1",
+  "version": "two1",
   "repository": "iwsksownw666/aura-exchange",
-  "sourceBytes": 46352212,
-  "sourceSHA256": "fe7b6e6e2915ae06ddabc35f7ad98819b485ef8d6f4842f62f4e9b250a180620",
+  "sourceBytes": 82825134,
+  "sourceSHA256": "0967844adb3fb7c18a6dd6487fa04ee2654824019898922b78720424925762d9",
   "assets": [
     {
       "key": "ASTRAIOS.json",
       "sha256": "1e17eaacd585497df058df02a04891527861d308654478de8be99cdb59f1afd6",
       "bytes": 2185550,
-      "location": "versions/ill-fx1/auras/ASTRAIOS.json",
+      "location": "versions/two1/auras/ASTRAIOS.json",
       "exact": true
     },
     {
       "key": "animations/animation_98572784316773.json",
       "sha256": "d253f8122f9ef453ac65904c595d051d692040754e36fb58250e255b09a87619",
       "bytes": 3814391,
-      "location": "versions/ill-fx1/auras/ASTRAIOS.json",
+      "location": "versions/two1/auras/ASTRAIOS.json",
       "exact": true
     },
     {
       "key": "ASTRAIOS_motion.json",
       "sha256": "b88f1f7ee8f42443d90300fc9256be1fb5b400332041d96ec44248a0d5daf79e",
       "bytes": 2720479,
-      "location": "versions/ill-fx1/motions/ASTRAIOS_motion.json",
+      "location": "versions/two1/motions/ASTRAIOS_motion.json",
       "exact": true
     },
     {
       "key": "Monarch.json",
       "sha256": "ea43d91eea9e34e0121967f065322c5b97ce80632a7a63a1d02071e99fd036fd",
       "bytes": 1918578,
-      "location": "versions/ill-fx1/auras/Monarch.json",
+      "location": "versions/two1/auras/Monarch.json",
       "exact": true
     },
     {
       "key": "animations/animation_118289001826286.json",
       "sha256": "0a69a9ed92470ceefbf7f48a494e2b709cf9fcd997df6f705b24e4bf2a51b0cf",
       "bytes": 406593,
-      "location": "versions/ill-fx1/auras/Monarch.json",
+      "location": "versions/two1/auras/Monarch.json",
       "exact": true
     },
     {
       "key": "Monarch_motion.json",
       "sha256": "d3d77af48d66226f1fdd28e9d5f5a4dd3337450ee78740613dbb60adc99e2fc4",
       "bytes": 1384264,
-      "location": "versions/ill-fx1/motions/Monarch_motion.json",
+      "location": "versions/two1/motions/Monarch_motion.json",
       "exact": true
     },
     {
       "key": "LEVIATHAN.json",
       "sha256": "35e21bf4fb02afe2996a3fcdb1963431559d089a050bb283aacdc0d19806b786",
       "bytes": 1208149,
-      "location": "versions/ill-fx1/auras/LEVIATHAN.json",
+      "location": "versions/two1/auras/LEVIATHAN.json",
       "exact": true
     },
     {
       "key": "animations/animation_132979577139811.json",
       "sha256": "68bbc7342214dcbfdf64f86e1584274ed1090a1a665b390c97f685e07765c40f",
       "bytes": 3525809,
-      "location": "versions/ill-fx1/auras/LEVIATHAN.json",
+      "location": "versions/two1/auras/LEVIATHAN.json",
       "exact": true
     },
     {
       "key": "LEVIATHAN_motion.json",
       "sha256": "d792199221b0950fcc40cf9d99bad634cc7eb36d3764b75e09ed21aa89f82247",
       "bytes": 1493416,
-      "location": "versions/ill-fx1/motions/LEVIATHAN_motion.json",
+      "location": "versions/two1/motions/LEVIATHAN_motion.json",
       "exact": true
     },
     {
       "key": "Tomorrow.json",
       "sha256": "05679bdf78c7bf390bae1139292c4b8d08984bc1df62197a39dc87441481f6ed",
       "bytes": 2572355,
-      "location": "versions/ill-fx1/auras/Tomorrow.json",
+      "location": "versions/two1/auras/Tomorrow.json",
       "exact": true
     },
     {
       "key": "animations/animation_113180536437121.json",
       "sha256": "73a1843899fefbf603b08565ae153712e1e6f9fd2246bb0097c2a06ea8a36951",
       "bytes": 471291,
-      "location": "versions/ill-fx1/auras/Tomorrow.json",
+      "location": "versions/two1/auras/Tomorrow.json",
       "exact": true
     },
     {
       "key": "Tomorrow_motion.json",
       "sha256": "90d5d1e0657f97ff630ff143f3a7340923801179d32b3c394b15f89d8e0a8a2c",
       "bytes": 1966221,
-      "location": "versions/ill-fx1/motions/Tomorrow_motion.json",
+      "location": "versions/two1/motions/Tomorrow_motion.json",
       "exact": true
     },
     {
       "key": "Oppression.json",
       "sha256": "7f06c509747fc256a6a9d80e13e6dfad029dbabb19f67a1721594ae933e650ca",
       "bytes": 1150962,
-      "location": "versions/ill-fx1/auras/Oppression.json",
+      "location": "versions/two1/auras/Oppression.json",
       "exact": true
     },
     {
       "key": "animations/animation_101709109117549.json",
       "sha256": "cf1b6ec6cd3c2d45c5c6f55332b142e6f7aeb6d4870c027437ee7c8860accd0b",
       "bytes": 190666,
-      "location": "versions/ill-fx1/auras/Oppression.json",
+      "location": "versions/two1/auras/Oppression.json",
       "exact": true
     },
     {
       "key": "Oppression_motion.json",
       "sha256": "b717374aa7f2174c222e2e04f4d916cec65d633c24178d752c81fa0043554869",
       "bytes": 604359,
-      "location": "versions/ill-fx1/motions/Oppression_motion.json",
+      "location": "versions/two1/motions/Oppression_motion.json",
       "exact": true
     },
     {
       "key": "Lamenthyr.json",
       "sha256": "7f7c5a407f3b582916ddbcc9ef36cb1713caa5099e9ff2c59f71ba96f69ae5a2",
       "bytes": 2148749,
-      "location": "versions/ill-fx1/auras/Lamenthyr.json",
+      "location": "versions/two1/auras/Lamenthyr.json",
       "exact": true
     },
     {
       "key": "animations/animation_86458494810549.json",
       "sha256": "2adbd77a708f71339f607051b86522962e8cb0acc3ad86509dac29e82bbe0ff4",
       "bytes": 2662624,
-      "location": "versions/ill-fx1/auras/Lamenthyr.json",
+      "location": "versions/two1/auras/Lamenthyr.json",
       "exact": true
     },
     {
       "key": "Lamenthyr_motion.json",
       "sha256": "b200627dad638a1752949312d479c6087314d5c8dc4adbc26f2fb7772e614336",
       "bytes": 2727390,
-      "location": "versions/ill-fx1/motions/Lamenthyr_motion.json",
+      "location": "versions/two1/motions/Lamenthyr_motion.json",
       "exact": true
     },
     {
       "key": "Eden.json",
       "sha256": "d56681646178e2c178a108ed901078393b3168d1e15890645b1f9a81ced245d4",
       "bytes": 3783654,
-      "location": "versions/ill-fx1/auras/Eden.json",
+      "location": "versions/two1/auras/Eden.json",
       "exact": true
     },
     {
       "key": "animations/animation_130650435171934.json",
       "sha256": "aa0fee0be1b63c123017aaf1fb153c4748af7e4e0e85f408110beacc5bd72ccf",
       "bytes": 112132,
-      "location": "versions/ill-fx1/auras/Eden.json",
+      "location": "versions/two1/auras/Eden.json",
       "exact": true
     },
     {
       "key": "animations/animation_123533160693559.json",
       "sha256": "2a0800d079dd12963557617f5b6fb471e461a19ecb24be0e08e032704356ad2e",
       "bytes": 224298,
-      "location": "versions/ill-fx1/auras/Eden.json",
+      "location": "versions/two1/auras/Eden.json",
       "exact": true
     },
     {
       "key": "animations/animation_79203569562321.json",
       "sha256": "a9bc9451c6226097e2e14c695e564f7f0110cc7baca2b30593da89ba3ce3cd1b",
       "bytes": 1813,
-      "location": "versions/ill-fx1/auras/Eden.json",
+      "location": "versions/two1/auras/Eden.json",
       "exact": true
     },
     {
       "key": "animations/animation_112827361961722.json",
       "sha256": "681c9feb5dba90e4653d14bdc5ffaa2a717bd0b40d80710091d6a57a8c8a1c8f",
       "bytes": 7039,
-      "location": "versions/ill-fx1/auras/Eden.json",
+      "location": "versions/two1/auras/Eden.json",
       "exact": true
     },
     {
       "key": "animations/animation_93827508197083.json",
       "sha256": "92607b8d75a55ffc4025672a4815cb2be1c9e8a05bc26e2c914d5cb8c3a98b71",
       "bytes": 17938,
-      "location": "versions/ill-fx1/auras/Eden.json",
+      "location": "versions/two1/auras/Eden.json",
       "exact": true
     },
     {
       "key": "animations/animation_104263600793152.json",
       "sha256": "dd5e81fc2b75bb8e849443d123f9642bfbe982f9835d6255c1719ff282a31c62",
       "bytes": 27759,
-      "location": "versions/ill-fx1/auras/Eden.json",
+      "location": "versions/two1/auras/Eden.json",
       "exact": true
     },
     {
       "key": "animations/animation_110001831807332.json",
       "sha256": "aaacba4ba10d58fab84d1085fa695c8711d11cd44efe1064f2996c9b85913574",
       "bytes": 28322,
-      "location": "versions/ill-fx1/auras/Eden.json",
+      "location": "versions/two1/auras/Eden.json",
       "exact": true
     },
     {
       "key": "animations/animation_88049392229031.json",
       "sha256": "9e3a84c4043577ba398f1abf8631828a89a5ad6fb8e6671e93b9f4fe31857d12",
       "bytes": 15618,
-      "location": "versions/ill-fx1/auras/Eden.json",
+      "location": "versions/two1/auras/Eden.json",
       "exact": true
     },
     {
       "key": "animations/animation_97363310076806.json",
       "sha256": "71d5eaa8a89ba571e425a85affae4a547df9f5dbaeb8d4e1e70063fdf727bf42",
       "bytes": 3465,
-      "location": "versions/ill-fx1/auras/Eden.json",
+      "location": "versions/two1/auras/Eden.json",
       "exact": true
     },
     {
       "key": "animations/animation_97526758956302.json",
       "sha256": "3d8a8342258aad98ecfbbcd7d620e8d16ae2f69028e970f99f9b5428077c3e75",
       "bytes": 33231,
-      "location": "versions/ill-fx1/auras/Eden.json",
+      "location": "versions/two1/auras/Eden.json",
       "exact": true
     },
     {
       "key": "animations/animation_128165251424306.json",
       "sha256": "0b1aadf72d00ac0fd7ea9bcc00da93c3798da8e7f876547a22f5f5e854ea894e",
       "bytes": 15131,
-      "location": "versions/ill-fx1/auras/Eden.json",
+      "location": "versions/two1/auras/Eden.json",
       "exact": true
     },
     {
       "key": "animations/animation_104862778157563.json",
       "sha256": "a88caa8cc2b1a0522b0b523c144108ac4b7136d88f5e57e232b41b4705e526b5",
       "bytes": 22488,
-      "location": "versions/ill-fx1/auras/Eden.json",
+      "location": "versions/two1/auras/Eden.json",
       "exact": true
     },
     {
       "key": "animations/animation_76984492261316.json",
       "sha256": "3083aead1808f532e48e1104d37ae4e61c5184b7345d6fe86a8825dc887710f6",
       "bytes": 315,
-      "location": "versions/ill-fx1/auras/Eden.json",
+      "location": "versions/two1/auras/Eden.json",
       "exact": true
     },
     {
       "key": "animations/animation_95569306173367.json",
       "sha256": "b4789d4f24d66065204c0392d501507d694fd720e7dfd47cce08322dc109eda8",
       "bytes": 3606,
-      "location": "versions/ill-fx1/auras/Eden.json",
+      "location": "versions/two1/auras/Eden.json",
       "exact": true
     },
     {
       "key": "Eden_motion.json",
       "sha256": "e907039f50f8cbc6ee369c7a77a384b6386f408f462000c72bd1a22fb5b5758d",
       "bytes": 1665523,
-      "location": "versions/ill-fx1/motions/Eden_motion.json",
+      "location": "versions/two1/motions/Eden_motion.json",
       "exact": true
     },
     {
       "key": "Illusionary.json",
       "sha256": "05438542ebcd5d380555b7bb269a556b27040c891c47ce5b3b5010ee282036fc",
       "bytes": 2603951,
-      "location": "versions/ill-fx1/auras/Illusionary.json",
+      "location": "versions/two1/auras/Illusionary.json",
       "exact": true
     },
     {
       "key": "animations/animation_109536481760521.json",
       "sha256": "a50681add4443422dba780403597b238f95bad4e38db78bd6d16fcef930938d8",
       "bytes": 934485,
-      "location": "versions/ill-fx1/auras/Illusionary.json",
+      "location": "versions/two1/auras/Illusionary.json",
       "exact": true
     },
     {
       "key": "animations/animation_135387970626232.json",
       "sha256": "0858c662c09d2541b3a041fe39c4e897cdf889eb9b65132e08ff0072cd8e94e7",
       "bytes": 961751,
-      "location": "versions/ill-fx1/auras/Illusionary.json",
+      "location": "versions/two1/auras/Illusionary.json",
       "exact": true
     },
     {
       "key": "Illusionary_motion.json",
       "sha256": "5ca403e36024fe116f667fbcc5c4ac2a8836131526da2d8483d8bc7163431026",
       "bytes": 2666558,
-      "location": "versions/ill-fx1/motions/Illusionary_motion.json",
+      "location": "versions/two1/motions/Illusionary_motion.json",
+      "exact": true
+    },
+    {
+      "key": "Hellborn.json",
+      "sha256": "b22b38e957a1cc45099788a2018c9f6cf71895dc323e91f51c9d9996a3a2b0ff",
+      "bytes": 3298694,
+      "location": "versions/two1/auras/Hellborn.json",
+      "exact": true
+    },
+    {
+      "key": "animations/animation_93169902919935.json",
+      "sha256": "60a9bb4fe5bef0449fec2cf311ed3711fcde1b538633b0c00de39a54ca5ec89d",
+      "bytes": 2050811,
+      "location": "versions/two1/auras/Hellborn.json",
+      "exact": true
+    },
+    {
+      "key": "Hellborn_motion.json",
+      "sha256": "c0c36dde5549efce1bef3b9f355409406ae95179a52fd8c9281733d2cb1e0656",
+      "bytes": 4095012,
+      "location": "versions/two1/motions/Hellborn_motion.json",
+      "exact": true
+    },
+    {
+      "key": "Tree_House.json",
+      "sha256": "fa755d8e11700c523f1eb082729f56c902d819d7d5a42be2f3c89cce0252ab27",
+      "bytes": 5085001,
+      "location": "versions/two1/auras/Tree_House.json",
+      "exact": true
+    },
+    {
+      "key": "animations/animation_85141240656023.json",
+      "sha256": "85c3051e88413511b3dcfba9a7f70d86b28a6845bee139353817a272bf0a21a0",
+      "bytes": 20127242,
+      "location": "versions/two1/auras/Tree_House.json",
+      "exact": true
+    },
+    {
+      "key": "Tree_House_motion.json",
+      "sha256": "b38e7849ddfbe793dc2c97b397f70d945da81c2ed65df87ea349013a3a72166d",
+      "bytes": 1814495,
+      "location": "versions/two1/motions/Tree_House_motion.json",
       "exact": true
     }
   ],
   "bundles": [
     {
       "name": "ASTRAIOS",
-      "file": "versions/ill-fx1/auras/ASTRAIOS.json",
-      "bytes": 6000083,
-      "sha256": "ed8fed67fd01947bbbb540dd2364d25543ad249b9ce5c9b5ea9a4fafa2a5f4cd",
+      "file": "versions/two1/auras/ASTRAIOS.json",
+      "bytes": 6000080,
+      "sha256": "45a319f41da86455df0ba38215f46c1a612241bc30b50dc5aa73da329198b705",
       "fileCount": 2
     },
     {
       "name": "Monarch",
-      "file": "versions/ill-fx1/auras/Monarch.json",
-      "bytes": 2325312,
-      "sha256": "fe0dff572e9c1c104c5e051e7049df71bcfca86f7102585998426189217d69a4",
+      "file": "versions/two1/auras/Monarch.json",
+      "bytes": 2325309,
+      "sha256": "3e3e1add4914a2ddee9e633063c65c65cf8be90a76a687cf98dc084ea01f6d37",
       "fileCount": 2
     },
     {
       "name": "LEVIATHAN",
-      "file": "versions/ill-fx1/auras/LEVIATHAN.json",
-      "bytes": 4734103,
-      "sha256": "e70b58d222d61df38ec3ba9193e7f993c16c2eed3ada91ff4718533798d89eb8",
+      "file": "versions/two1/auras/LEVIATHAN.json",
+      "bytes": 4734100,
+      "sha256": "de649a773dea28ee552aa7bdd6808d61160f0851f9e9f29fe3c969a7e8f4a873",
       "fileCount": 2
     },
     {
       "name": "Tomorrow",
-      "file": "versions/ill-fx1/auras/Tomorrow.json",
-      "bytes": 3043789,
-      "sha256": "005b51e8d2595889c0aa65a8aea84cc2c7ebeb0ca8f4ebaf5806eccb080acfec",
+      "file": "versions/two1/auras/Tomorrow.json",
+      "bytes": 3043786,
+      "sha256": "258fb51989b4020287a4e3f667a52e588cee90e57911addd3ec934c013ae3be0",
       "fileCount": 2
     },
     {
       "name": "Oppression",
-      "file": "versions/ill-fx1/auras/Oppression.json",
-      "bytes": 1341775,
-      "sha256": "a7e77ca14c5205e9e1c7ccfb93f7dd7cfce8a0651f9308b69169f6239e2ae3b5",
+      "file": "versions/two1/auras/Oppression.json",
+      "bytes": 1341772,
+      "sha256": "be3646abad556aa54964a01d695a1192f0b5631763d2d0c5bba12f5564e006f5",
       "fileCount": 2
     },
     {
       "name": "Lamenthyr",
-      "file": "versions/ill-fx1/auras/Lamenthyr.json",
-      "bytes": 4811517,
-      "sha256": "ed4283f843760c9be3e5901a7d0f218a10ead5a4a0c1652ab73580cf6ba57d66",
+      "file": "versions/two1/auras/Lamenthyr.json",
+      "bytes": 4811514,
+      "sha256": "ff2f303ebe3d4875a564b6e42db1b160c08f4d94d65563b60de2b53b53ae5ac6",
       "fileCount": 2
     },
     {
       "name": "Eden",
-      "file": "versions/ill-fx1/auras/Eden.json",
-      "bytes": 4297522,
-      "sha256": "059281d3e186fdaea19dda15fe0d57e903224ff117c6eba36194f27bfc0b2309",
+      "file": "versions/two1/auras/Eden.json",
+      "bytes": 4297519,
+      "sha256": "4a98d53e874734e701c2e1f67959ecd6ed672a1d2aa463f37ae1372cbce9f22b",
       "fileCount": 15
     },
     {
       "name": "Illusionary",
-      "file": "versions/ill-fx1/auras/Illusionary.json",
-      "bytes": 4500381,
-      "sha256": "1145a51523b40c15382eba245dd5712ee6978734de93c0d06665f422ba255095",
+      "file": "versions/two1/auras/Illusionary.json",
+      "bytes": 4500378,
+      "sha256": "722f6d44b9b1e5ae9c49bbdeb818abd8e73bb90177c5c1306b3411c61418ee9c",
       "fileCount": 3
+    },
+    {
+      "name": "Hellborn",
+      "file": "versions/two1/auras/Hellborn.json",
+      "bytes": 5349644,
+      "sha256": "81655f8b46f6904cf84d7b46eaa7475583d87fb0045d61a355d41c40d177e3b2",
+      "fileCount": 2
+    },
+    {
+      "name": "Tree_House",
+      "file": "versions/two1/auras/Tree_House.json",
+      "bytes": 25212386,
+      "sha256": "442af7d706a20d798c394d82cdf768e53717e5de8fde495e3d48ae064b3e9d5c",
+      "fileCount": 2
     }
   ],
-  "entryBytes": 74572,
-  "entryReductionPercent": 99.839,
-  "initialResourceBytes": 4500381,
-  "totalInitialBytes": 4574953,
-  "assetCount": 38,
-  "releaseTag": "ill-fx1-publish-v2",
-  "loaderBytes": 718
+  "entryBytes": 76400,
+  "entryReductionPercent": 99.908,
+  "initialResourceBytes": 5349644,
+  "totalInitialBytes": 5426044,
+  "assetCount": 44,
+  "releaseTag": "two1-publish-v1",
+  "loaderBytes": 712
 }

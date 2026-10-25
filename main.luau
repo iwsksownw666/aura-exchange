@@ -1,16 +1,16 @@
--- Aura Exchange: download only the selected aura. Release ill-fx1.
+-- Aura Exchange: download only the selected aura. Release two1.
 local env=getgenv()
-local ASSET_BASE_URL=(env.AuraExchangeAssetBaseURL or "https://raw.githubusercontent.com/iwsksownw666/aura-exchange/ill-fx1-publish-v2/versions/ill-fx1"):gsub('/+$','')
-local ownerByKey={["ASTRAIOS.json"]="ASTRAIOS",["animations/animation_98572784316773.json"]="ASTRAIOS",["ASTRAIOS_motion.json"]=false,["Monarch.json"]="Monarch",["animations/animation_118289001826286.json"]="Monarch",["Monarch_motion.json"]=false,["LEVIATHAN.json"]="LEVIATHAN",["animations/animation_132979577139811.json"]="LEVIATHAN",["LEVIATHAN_motion.json"]=false,["Tomorrow.json"]="Tomorrow",["animations/animation_113180536437121.json"]="Tomorrow",["Tomorrow_motion.json"]=false,["Oppression.json"]="Oppression",["animations/animation_101709109117549.json"]="Oppression",["Oppression_motion.json"]=false,["Lamenthyr.json"]="Lamenthyr",["animations/animation_86458494810549.json"]="Lamenthyr",["Lamenthyr_motion.json"]=false,["Eden.json"]="Eden",["animations/animation_130650435171934.json"]="Eden",["animations/animation_123533160693559.json"]="Eden",["animations/animation_79203569562321.json"]="Eden",["animations/animation_112827361961722.json"]="Eden",["animations/animation_93827508197083.json"]="Eden",["animations/animation_104263600793152.json"]="Eden",["animations/animation_110001831807332.json"]="Eden",["animations/animation_88049392229031.json"]="Eden",["animations/animation_97363310076806.json"]="Eden",["animations/animation_97526758956302.json"]="Eden",["animations/animation_128165251424306.json"]="Eden",["animations/animation_104862778157563.json"]="Eden",["animations/animation_76984492261316.json"]="Eden",["animations/animation_95569306173367.json"]="Eden",["Eden_motion.json"]=false,["Illusionary.json"]="Illusionary",["animations/animation_109536481760521.json"]="Illusionary",["animations/animation_135387970626232.json"]="Illusionary",["Illusionary_motion.json"]=false}
-local bundles={["ASTRAIOS"]={["path"]="auras/ASTRAIOS.json",["bytes"]=6000083},["Monarch"]={["path"]="auras/Monarch.json",["bytes"]=2325312},["LEVIATHAN"]={["path"]="auras/LEVIATHAN.json",["bytes"]=4734103},["Tomorrow"]={["path"]="auras/Tomorrow.json",["bytes"]=3043789},["Oppression"]={["path"]="auras/Oppression.json",["bytes"]=1341775},["Lamenthyr"]={["path"]="auras/Lamenthyr.json",["bytes"]=4811517},["Eden"]={["path"]="auras/Eden.json",["bytes"]=4297522},["Illusionary"]={["path"]="auras/Illusionary.json",["bytes"]=4500381}}
+local ASSET_BASE_URL=(env.AuraExchangeAssetBaseURL or "https://raw.githubusercontent.com/iwsksownw666/aura-exchange/two1-publish-v1/versions/two1"):gsub('/+$','')
+local ownerByKey={["ASTRAIOS.json"]="ASTRAIOS",["animations/animation_98572784316773.json"]="ASTRAIOS",["ASTRAIOS_motion.json"]=false,["Monarch.json"]="Monarch",["animations/animation_118289001826286.json"]="Monarch",["Monarch_motion.json"]=false,["LEVIATHAN.json"]="LEVIATHAN",["animations/animation_132979577139811.json"]="LEVIATHAN",["LEVIATHAN_motion.json"]=false,["Tomorrow.json"]="Tomorrow",["animations/animation_113180536437121.json"]="Tomorrow",["Tomorrow_motion.json"]=false,["Oppression.json"]="Oppression",["animations/animation_101709109117549.json"]="Oppression",["Oppression_motion.json"]=false,["Lamenthyr.json"]="Lamenthyr",["animations/animation_86458494810549.json"]="Lamenthyr",["Lamenthyr_motion.json"]=false,["Eden.json"]="Eden",["animations/animation_130650435171934.json"]="Eden",["animations/animation_123533160693559.json"]="Eden",["animations/animation_79203569562321.json"]="Eden",["animations/animation_112827361961722.json"]="Eden",["animations/animation_93827508197083.json"]="Eden",["animations/animation_104263600793152.json"]="Eden",["animations/animation_110001831807332.json"]="Eden",["animations/animation_88049392229031.json"]="Eden",["animations/animation_97363310076806.json"]="Eden",["animations/animation_97526758956302.json"]="Eden",["animations/animation_128165251424306.json"]="Eden",["animations/animation_104862778157563.json"]="Eden",["animations/animation_76984492261316.json"]="Eden",["animations/animation_95569306173367.json"]="Eden",["Eden_motion.json"]=false,["Illusionary.json"]="Illusionary",["animations/animation_109536481760521.json"]="Illusionary",["animations/animation_135387970626232.json"]="Illusionary",["Illusionary_motion.json"]=false,["Hellborn.json"]="Hellborn",["animations/animation_93169902919935.json"]="Hellborn",["Hellborn_motion.json"]=false,["Tree_House.json"]="Tree_House",["animations/animation_85141240656023.json"]="Tree_House",["Tree_House_motion.json"]=false}
+local bundles={["ASTRAIOS"]={["path"]="auras/ASTRAIOS.json",["bytes"]=6000080},["Monarch"]={["path"]="auras/Monarch.json",["bytes"]=2325309},["LEVIATHAN"]={["path"]="auras/LEVIATHAN.json",["bytes"]=4734100},["Tomorrow"]={["path"]="auras/Tomorrow.json",["bytes"]=3043786},["Oppression"]={["path"]="auras/Oppression.json",["bytes"]=1341772},["Lamenthyr"]={["path"]="auras/Lamenthyr.json",["bytes"]=4811514},["Eden"]={["path"]="auras/Eden.json",["bytes"]=4297519},["Illusionary"]={["path"]="auras/Illusionary.json",["bytes"]=4500378},["Hellborn"]={["path"]="auras/Hellborn.json",["bytes"]=5349644},["Tree_House"]={["path"]="auras/Tree_House.json",["bytes"]=25212386}}
 local decoded,loaded,loading={},{},{}
-local stats={version="ill-fx1",downloads=0,bytes=0,cacheHits=0,attempts=0,fallbacks=0,packages={}}
+local stats={version="two1",downloads=0,bytes=0,cacheHits=0,attempts=0,fallbacks=0,packages={}}
 local Http=game:GetService('HttpService')
 local function fetch(relative,expectedBytes)
  local urls={ASSET_BASE_URL..'/'..relative}
  if not env.AuraExchangeAssetBaseURL then
   urls[1]..='?download=1'
-  table.insert(urls,"https://cdn.jsdelivr.net/gh/iwsksownw666/aura-exchange@ill-fx1-publish-v2/versions/ill-fx1/"..relative)
+  table.insert(urls,"https://cdn.jsdelivr.net/gh/iwsksownw666/aura-exchange@two1-publish-v1/versions/two1/"..relative)
  end
  local lastError
  for index,url in ipairs(urls)do
@@ -38,7 +38,7 @@ local function ensureBundle(owner)
  local ok,err=pcall(function()
   local info=assert(bundles[owner],'Unknown aura bundle: '..tostring(owner))
   local package=fetch(info.path,info.bytes)
-  assert(package.format=='AuraExchangeBundle/1'and package.version=="ill-fx1"and package.name==owner and type(package.files)=='table','Aura bundle version mismatch: '..owner)
+  assert(package.format=='AuraExchangeBundle/1'and package.version=="two1"and package.name==owner and type(package.files)=='table','Aura bundle version mismatch: '..owner)
   local pending={}
   for key,expectedOwner in pairs(ownerByKey)do if expectedOwner==owner then
    local value=package.files[key]
@@ -468,11 +468,11 @@ end)()
 
 
 
-local Module={Names={'ASTRAIOS','Monarch','LEVIATHAN','Tomorrow.','Oppression','Lamenthyr','Eden','Illusionary'},Version='2026-10-25-ill-fx1'}
+local Module={Names={'ASTRAIOS','Monarch','LEVIATHAN','Tomorrow.','Oppression','Lamenthyr','Eden','Illusionary','Hellborn','Tree House'},Version='2026-10-25-two1'}
 local environment=getgenv()
 environment.__AuraExchangeOwnership=environment.__AuraExchangeOwnership or setmetatable({},{__mode='k'})
 local ownership=environment.__AuraExchangeOwnership
-local bodyAnimations={ASTRAIOS='98572784316773',Monarch='118289001826286',LEVIATHAN='132979577139811',['Tomorrow.']='113180536437121',Oppression='101709109117549',Lamenthyr='86458494810549',Eden='130650435171934',Illusionary='109536481760521'}
+local bodyAnimations={ASTRAIOS='98572784316773',Monarch='118289001826286',LEVIATHAN='132979577139811',['Tomorrow.']='113180536437121',Oppression='101709109117549',Lamenthyr='86458494810549',Eden='130650435171934',Illusionary='109536481760521',Hellborn='93169902919935',['Tree House']='85141240656023'}
 local bodyJoints={Torso={'HumanoidRootPart','RootJoint'},Head={'Torso','Neck'},['Left Arm']={'Torso','Left Shoulder'},['Right Arm']={'Torso','Right Shoulder'},['Left Leg']={'Torso','Left Hip'},['Right Leg']={'Torso','Right Hip'}}
 local function enum(s)
  local group,name=s:match('^Enum%.([^%.]+)%.(.+)$')
@@ -511,7 +511,7 @@ local skip={Parent=true,Source=true,Disabled=true,Enabled=true,RunContext=true,S
 for _,k in ipairs({'AttributesSerialize','Tags','DefinesCapabilities','NeedsPivotMigration','EquippedEmotesDataInternal','TexturePackMetadata','EmotesDataInternal','RootPart','InertiaMigrated','ModelMeshCFrame','ScaleFactor','SlimHash','ModelMeshData','Health_XML','InternalBodyScale','LocalizedText','GuiState','OpenTypeFeaturesError','ModelMeshSize','FluidFidelityInternal','VertexCount','InternalHeadScale','AeroMeshData','CameraCFrame','CameraFieldOfView','ViewportSize','NearPlaneZ'}) do skip[k]=true end
 skip.Position=nil;skip.Orientation=nil;skip.Rotation=nil
 local partAliases={Position=true,Orientation=true,Rotation=true}
-for _,key in ipairs({'IsReady','TimeLength','Connected','RmsLevel','PeakLevel'})do skip[key]=true end
+for _,key in ipairs({'IsReady','TimeLength','Connected','RmsLevel','PeakLevel','GuidBinaryString','Length'})do skip[key]=true end
 local mappedBodies={Head=true,Torso=true,HumanoidRootPart=true,['Left Arm']=true,['Right Arm']=true,['Left Leg']=true,['Right Leg']=true}
 local normalAttachments={RootAttachment=true,NeckAttachment=true,BodyFrontAttachment=true,BodyBackAttachment=true,LeftCollarAttachment=true,RightCollarAttachment=true,WaistBackAttachment=true,WaistCenterAttachment=true,WaistFrontAttachment=true,FaceCenterAttachment=true,FaceFrontAttachment=true,HairAttachment=true,HatAttachment=true,LeftFootAttachment=true,RightFootAttachment=true,LeftGripAttachment=true,LeftShoulderAttachment=true,RightGripAttachment=true,RightShoulderAttachment=true}
 local normalMotors={RootJoint=true,Neck=true,['Left Shoulder']=true,['Right Shoulder']=true,['Left Hip']=true,['Right Hip']=true}
@@ -524,6 +524,7 @@ function Module.new(base,readData)
  base=base or 'aura_capture_20261025'
  local function load(directory,name,suffix)
   if name=='Tomorrow.' then name='Tomorrow' end
+  if name=='Tree House' then name='Tree_House' end
   if readData then return readData(directory,name,suffix) end
   assert(type(readfile)=='function','executor readfile is required')
   return Http:JSONDecode(readfile(directory..'/'..name..(suffix or '')..'.json'))
@@ -639,7 +640,14 @@ function Module.new(base,readData)
      assert(obj,'Eden union geometry failed: '..tostring(ok and n.name or list))
      handle.UnionsLoaded=(handle.UnionsLoaded or 0)+1
     end
-    if n.class=='MeshPart' and n.props.MeshId and #n.props.MeshId.v>0 then
+    if n.class=='MeshPart' and n.meshXML then
+     local directory='AuraExchangeAssets';if not isfolder(directory)then makefolder(directory)end
+     local file=directory..'/captured_mesh_'..tostring(n.id)..'.rbxmx';writefile(file,n.meshXML)
+     local list=game:GetObjects(getcustomasset(file))
+     for _,item in ipairs(list)do if not obj and item:IsA('MeshPart')then obj=item;obj:ClearAllChildren()else item:Destroy()end end
+     assert(obj,'Captured mesh import failed: '..n.name)
+    end
+    if not obj and n.class=='MeshPart' and n.props.MeshId and #n.props.MeshId.v>0 then
      local ok,value=pcall(function()return game:GetService('AssetService'):CreateMeshPartAsync(Content.fromUri(n.props.MeshId.v),{CollisionFidelity=Enum.CollisionFidelity.Box,RenderFidelity=Enum.RenderFidelity.Automatic}) end)
      if cancelled() then if ok then value:Destroy() end;return nil end
      if ok then obj=value;obj:ClearAllChildren() else errorItem(n.id,'MeshId',value) end
@@ -1005,6 +1013,12 @@ function Module.new(base,readData)
     local executable=node.source:gsub('game:GetService%("RunService"%)','__AuraRunService')
     executable=executable:gsub("game%[%s*['\"]Run Service['\"]%s*%]",'__AuraRunService')
     local parent=data.nodes[node.parent or 0]
+    if name=='Hellborn' or name=='Tree House' then
+     executable=executable:gsub('script_Parent%.DescendantAdded:Connect%(','__AuraConnect(script_Parent.DescendantAdded, ')
+     executable=executable:gsub('script_Parent%.DescendantRemoving:Connect%(','__AuraConnect(script_Parent.DescendantRemoving, ')
+     executable=executable:gsub('script_Parent%.Destroying:Connect%(','__AuraConnect(script_Parent.Destroying, ')
+     executable=executable:gsub('game:GetService%("TweenService"%)','__AuraTweenService')
+    end
     if name=='Oppression' and parent and parent.class=='Attachment' and parent.name=='Floor' and executable:find('workspace:Blockcast',1,true) then
      -- The captured floor script sits under the attachment; raycasts need its root part.
      local changes
@@ -1064,6 +1078,11 @@ function Module.new(base,readData)
     return loadstring(executable,'AuraExchange/'..name..'/'..node.id)
    end
    makeEnvironment=function(obj)
+    local tweenProxy={Create=function(_, ...)
+     local tween=game:GetService('TweenService'):Create(...)
+     table.insert(self.Cleanups,function()tween:Cancel();tween:Destroy()end)
+     return tween
+    end}
     local fxTaskProxy={wait=task.wait}
     for _,method in ipairs({'spawn','defer','delay'})do
      fxTaskProxy[method]=function(...)
@@ -1080,7 +1099,7 @@ function Module.new(base,readData)
       return thread
      end
     end
-    return setmetatable({script=obj,game=realGame,task=taskProxy,wait=task.wait,spawn=taskProxy.spawn,delay=taskProxy.delay,require=managedRequire,__AuraRunService=rsProxy,__AuraFXTask=fxTaskProxy,
+    return setmetatable({script=obj,game=realGame,task=taskProxy,wait=task.wait,spawn=taskProxy.spawn,delay=taskProxy.delay,require=managedRequire,__AuraTweenService=tweenProxy,__AuraRunService=rsProxy,__AuraFXTask=fxTaskProxy,
      __AuraObjectTrack=function()
       for index,t in ipairs(data.tracks or {})do if t.id:match('%d+')=='135387970626232'then
        local deadline=os.clock()+10
@@ -1237,20 +1256,20 @@ return Module
 
 end)()
 -- Fetch first; a failed initial download leaves the previous running manager intact.
-ensureBundle('Illusionary')
+ensureBundle('Hellborn')
 if type(env.exchang_aura)=='function'then pcall(env.exchang_aura,'None')end
 if env.AuraExchangeManager then pcall(function()env.AuraExchangeManager:Clear()end)end
 local manager=Module.new('remote',readData)
 env.AuraExchangeManager=manager
 env.AuraExchangeReleaseStats=stats
-env.ExchangeAuraNames={'None','ASTRAIOS','Monarch','LEVIATHAN','Tomorrow.','Oppression','Lamenthyr','Eden','Illusionary'}
+env.ExchangeAuraNames={'None','ASTRAIOS','Monarch','LEVIATHAN','Tomorrow.','Oppression','Lamenthyr','Eden','Illusionary','Hellborn','Tree House'}
 local requestSerial=0
 env.exchang_aura=function(name)
  requestSerial+=1;local serial=requestSerial
  if not name or name=='None'then manager:Clear();return end
  if name=='Tomorrow'then name='Tomorrow.'end
  assert(table.find(env.ExchangeAuraNames,name),'Unknown aura: '..tostring(name))
- ensureBundle(name=='Tomorrow.'and 'Tomorrow'or name)
+ ensureBundle(name=='Tree House'and 'Tree_House'or(name=='Tomorrow.'and 'Tomorrow'or name))
  if serial~=requestSerial then return nil,'superseded'end
  return manager:Exchange(name,game.Players.LocalPlayer.Character,{Animations=true,BodyPose=true,EffectScripts=true,RecordedMotion=false})
 end
@@ -1264,6 +1283,6 @@ env.exchang_illusionary_skill=function(name,settings)
  if not h or h.Name~='Illusionary'then return false,'Illusionary is not active'end
  return h:CastIllusionarySkill(name,settings)
 end
-env.exchang_aura('Illusionary')
+env.exchang_aura('Hellborn')
 return manager
 -- AURA_EXCHANGE_COMPLETE_ill_fx1

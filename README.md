@@ -1,15 +1,23 @@
-# Illusionary client FX - ill-fx1
+# Aura Exchange - two1
 
-新增保存原版 ReplicatedStorage.illusionary_FXModule：113 对象，包含原弹幕、棋子特效回调、粒子和音效。
+新增保存当前服务器两位其他玩家的光环，排除本地玩家 iwisjdjeeiidj。
+
+| 玩家 | 光环 | 角色对象 | 身体动画 |
+|---|---|---:|---|
+| joanne_1235469 | Hellborn | 1357 | 93169902919935 |
+| 91919191qqqoppoA5 | Tree House | 2386 | 85141240656023 |
 
 ~~~lua
-loadstring(game:HttpGet("https://raw.githubusercontent.com/iwsksownw666/aura-exchange/main/loader.luau?release=ill-fx1"))()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/iwsksownw666/aura-exchange/main/loader.luau?release=two1"))()
+getgenv().exchang_aura('Hellborn')
+getgenv().exchang_aura('Tree House')
+getgenv().exchang_aura('None')
 ~~~
 
-F 接入原 Bullet、BulletSound、Bezier 轨迹和爆破粒子；本地调度为施放后 2 秒开始、20 发、间隔 0.05 秒。此调度参考现有屏幕回调时间，尚未对照原装备者实测，不宣称原服务端发射时序一致。目标为鼠标指向、默认限制 200 studs；脚本可传 TargetPosition=Vector3。
+共十种光环，原八种继续保留：ASTRAIOS、Monarch、LEVIATHAN、Tomorrow.、Oppression、Lamenthyr、Eden、Illusionary。默认 Hellborn；每种首次使用时按需下载。小入口 loader.luau 校验完整主文件长度，再使用固定 tag 下载资源。完整内嵌版 exchang_aura_final.luau 可单独执行。
 
-E/R/V 保留现有原屏幕回调，并触发光环自带 Pawn/Queen/Rook 图标粒子。原 MovePawn/MoveQueen/RookPull/RookExplode 回调与依赖资源已保存；完整技能棋子模型目前未取得，因此本版尚未创建这些召唤物。之后由原装备者释放技能补抓，不以过场模型代替。
+新增两份完整角色快照、模型/粒子/Beam/音效/脚本、身体原动画关键帧、10 秒动态记录，Master/Rune 依赖与所有外部引用已解析。原始导出及 XML 位于 other_two_auras_20261025。两个角色均没有 Union。SecurityCapabilities 为不支持的元数据类型，非视觉资源；Reset/PrimarySetter/ReplaceAccessory/ToolModes/Health 的服务器脚本为空字节码，未恢复服务端逻辑。未观测的技能表现不属于本次静态光环保存覆盖。
 
-八光环、文字和移动修复沿用上一版。Eden 未更改。所有新增表现仅客户端播放，不发送技能远程、不产生服务端伤害。
+Hellborn 原 Moving/Rotating 脚本、Tree House 原昼夜变色/表面颜色/旋转/移动脚本接入受管理生命周期；切换后清理任务、连接和 Tween。默认移动时持续光环动画。Eden 功能沿用旧版。Illusionary 维持 ill-fx1 客户端弹幕资源、音效、Bezier 和爆破；发射时序仍是本地安排，兵/后/车技能模型待原装备者释放时补抓，不宣称完整技能复刻。
 
-停止、取消技能或切换光环时清理新增弹幕、音效、任务。编译及运行验证见对应 validation.json；缺少游戏内报告表示未完成本版运行验收。
+验证边界：compile_validation.json 为编译；two_runtime_validation.json 为连接客户端测试；public_runtime_validation.json 为公开入口测试。未生成的报告表示对应步骤尚未完成。手机实机及 Studio 导入未验收。
