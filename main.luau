@@ -1,16 +1,16 @@
--- Aura Exchange: download only the selected aura. Release ill-walk1.
+-- Aura Exchange: download only the selected aura. Release ill-fx1.
 local env=getgenv()
-local ASSET_BASE_URL=(env.AuraExchangeAssetBaseURL or "https://raw.githubusercontent.com/iwsksownw666/aura-exchange/ill-walk1-publish-v1/versions/ill-walk1"):gsub('/+$','')
+local ASSET_BASE_URL=(env.AuraExchangeAssetBaseURL or "https://raw.githubusercontent.com/iwsksownw666/aura-exchange/ill-fx1-publish-v2/versions/ill-fx1"):gsub('/+$','')
 local ownerByKey={["ASTRAIOS.json"]="ASTRAIOS",["animations/animation_98572784316773.json"]="ASTRAIOS",["ASTRAIOS_motion.json"]=false,["Monarch.json"]="Monarch",["animations/animation_118289001826286.json"]="Monarch",["Monarch_motion.json"]=false,["LEVIATHAN.json"]="LEVIATHAN",["animations/animation_132979577139811.json"]="LEVIATHAN",["LEVIATHAN_motion.json"]=false,["Tomorrow.json"]="Tomorrow",["animations/animation_113180536437121.json"]="Tomorrow",["Tomorrow_motion.json"]=false,["Oppression.json"]="Oppression",["animations/animation_101709109117549.json"]="Oppression",["Oppression_motion.json"]=false,["Lamenthyr.json"]="Lamenthyr",["animations/animation_86458494810549.json"]="Lamenthyr",["Lamenthyr_motion.json"]=false,["Eden.json"]="Eden",["animations/animation_130650435171934.json"]="Eden",["animations/animation_123533160693559.json"]="Eden",["animations/animation_79203569562321.json"]="Eden",["animations/animation_112827361961722.json"]="Eden",["animations/animation_93827508197083.json"]="Eden",["animations/animation_104263600793152.json"]="Eden",["animations/animation_110001831807332.json"]="Eden",["animations/animation_88049392229031.json"]="Eden",["animations/animation_97363310076806.json"]="Eden",["animations/animation_97526758956302.json"]="Eden",["animations/animation_128165251424306.json"]="Eden",["animations/animation_104862778157563.json"]="Eden",["animations/animation_76984492261316.json"]="Eden",["animations/animation_95569306173367.json"]="Eden",["Eden_motion.json"]=false,["Illusionary.json"]="Illusionary",["animations/animation_109536481760521.json"]="Illusionary",["animations/animation_135387970626232.json"]="Illusionary",["Illusionary_motion.json"]=false}
-local bundles={["ASTRAIOS"]={["path"]="auras/ASTRAIOS.json",["bytes"]=6000085},["Monarch"]={["path"]="auras/Monarch.json",["bytes"]=2325314},["LEVIATHAN"]={["path"]="auras/LEVIATHAN.json",["bytes"]=4734105},["Tomorrow"]={["path"]="auras/Tomorrow.json",["bytes"]=3043791},["Oppression"]={["path"]="auras/Oppression.json",["bytes"]=1341777},["Lamenthyr"]={["path"]="auras/Lamenthyr.json",["bytes"]=4811519},["Eden"]={["path"]="auras/Eden.json",["bytes"]=4297524},["Illusionary"]={["path"]="auras/Illusionary.json",["bytes"]=4207849}}
+local bundles={["ASTRAIOS"]={["path"]="auras/ASTRAIOS.json",["bytes"]=6000083},["Monarch"]={["path"]="auras/Monarch.json",["bytes"]=2325312},["LEVIATHAN"]={["path"]="auras/LEVIATHAN.json",["bytes"]=4734103},["Tomorrow"]={["path"]="auras/Tomorrow.json",["bytes"]=3043789},["Oppression"]={["path"]="auras/Oppression.json",["bytes"]=1341775},["Lamenthyr"]={["path"]="auras/Lamenthyr.json",["bytes"]=4811517},["Eden"]={["path"]="auras/Eden.json",["bytes"]=4297522},["Illusionary"]={["path"]="auras/Illusionary.json",["bytes"]=4500381}}
 local decoded,loaded,loading={},{},{}
-local stats={version="ill-walk1",downloads=0,bytes=0,cacheHits=0,attempts=0,fallbacks=0,packages={}}
+local stats={version="ill-fx1",downloads=0,bytes=0,cacheHits=0,attempts=0,fallbacks=0,packages={}}
 local Http=game:GetService('HttpService')
 local function fetch(relative,expectedBytes)
  local urls={ASSET_BASE_URL..'/'..relative}
  if not env.AuraExchangeAssetBaseURL then
   urls[1]..='?download=1'
-  table.insert(urls,"https://cdn.jsdelivr.net/gh/iwsksownw666/aura-exchange@ill-walk1-publish-v1/versions/ill-walk1/"..relative)
+  table.insert(urls,"https://cdn.jsdelivr.net/gh/iwsksownw666/aura-exchange@ill-fx1-publish-v2/versions/ill-fx1/"..relative)
  end
  local lastError
  for index,url in ipairs(urls)do
@@ -38,7 +38,7 @@ local function ensureBundle(owner)
  local ok,err=pcall(function()
   local info=assert(bundles[owner],'Unknown aura bundle: '..tostring(owner))
   local package=fetch(info.path,info.bytes)
-  assert(package.format=='AuraExchangeBundle/1'and package.version=="ill-walk1"and package.name==owner and type(package.files)=='table','Aura bundle version mismatch: '..owner)
+  assert(package.format=='AuraExchangeBundle/1'and package.version=="ill-fx1"and package.name==owner and type(package.files)=='table','Aura bundle version mismatch: '..owner)
   local pending={}
   for key,expectedOwner in pairs(ownerByKey)do if expectedOwner==owner then
    local value=package.files[key]
@@ -327,12 +327,65 @@ Controller.Skills={
  {name='no, not yet.',key='R',duration=2.5},
  {name='you are a puppet.',key='V',duration=3.5},
 }
-function Controller.install(h,skills,ui)
+function Controller.install(h,skills,ui,fx)
  local CAS=game:GetService('ContextActionService')
  local UIS=game:GetService('UserInputService')
  local token=0
  local active,thread
  local cooldowns={}
+ local fxThreads,fxObjects={},{}
+ h.IllusionaryFXThreads=fxThreads;h.IllusionaryFXObjects=fxObjects
+ h.IllusionaryFXStats={projectiles=0,callbacks={}}
+ h.IllusionaryFXCoverage={Projectile='original resource and callback; local schedule',Pawn='callback saved; skill model missing',Queen='callback saved; skill model missing',Rook='callbacks saved; skill model missing'}
+ local function fxTask(fn,...)
+  local args=table.pack(...)
+  local t=task.defer(function()
+   local ok,err=pcall(fn,table.unpack(args,1,args.n))
+   if not ok and h.Alive then table.insert(h.Errors,{property='IllusionaryFX',error=tostring(err)})end
+  end)
+  table.insert(h.Threads,t);table.insert(fxThreads,t);return t
+ end
+ local function clearFX()
+  for _,t in ipairs(fxThreads)do if t~=coroutine.running()then pcall(task.cancel,t)end end
+  for _,x in ipairs(fxObjects)do pcall(function()x:Destroy()end)end
+  table.clear(fxThreads);table.clear(fxObjects)
+ end
+ h.CancelIllusionaryFX=clearFX
+ function h:PlayIllusionaryProjectile(origin,destination)
+  if not self.Alive then return false,'stopped'end
+  if typeof(origin)~='CFrame'or typeof(destination)~='Vector3'then return false,'CFrame and Vector3 required'end
+  fxTask(function()
+   fx.Projectile(origin,destination)
+   self.IllusionaryFXStats.projectiles+=1
+  end)
+  return true
+ end
+ local function skillVisual(entry,settings)
+  local char=h.Root;local hrp=char:FindFirstChild('HumanoidRootPart')
+  if not hrp then return end
+  local emit=hrp:FindFirstChild('SkillUseEmit')
+  local icon=({F='Projectiles',E='Pawn',R='Queen',V='Rook'})[entry.key]
+  local attachment=emit and emit:FindFirstChild(icon,true)
+  if attachment then for _,x in ipairs(attachment:GetDescendants())do if x:IsA('ParticleEmitter')then x:Emit(x:GetAttribute('EmitCount')or 1)end end end
+  if entry.key~='F'then return end
+  local origin=hrp.CFrame
+  local destination=settings.TargetPosition
+  if typeof(destination)~='Vector3'then
+   local mouse=game.Players.LocalPlayer:GetMouse()
+   destination=mouse.Hit.Position
+   local delta=destination-origin.Position
+   if delta.Magnitude<3 then destination=origin.Position+origin.LookVector*60
+   elseif delta.Magnitude>200 then destination=origin.Position+delta.Unit*200 end
+  end
+  fxTask(function()
+   task.wait(2)
+   for _=1,20 do
+    if not h.Alive then return end
+    h:PlayIllusionaryProjectile(origin,destination)
+    task.wait(.05)
+   end
+  end)
+ end
  h.IllusionarySkills=Controller.Skills
  h.IllusionarySkillStats={casts={},completed=0}
  local root=ui._AuraRoot
@@ -354,6 +407,7 @@ function Controller.install(h,skills,ui)
   end
  end
  function h:CancelIllusionarySkill()
+  clearFX()
   token+=1
   if thread and thread~=coroutine.running()then pcall(task.cancel,thread)end
   if active then pcall(skills[active].Cancel)end
@@ -369,12 +423,14 @@ function Controller.install(h,skills,ui)
   if not entry then return false,'unknown skill'end
   if active then return false,'busy'end
   if not settings.IgnoreCooldown and(cooldowns[entry.name]or 0)>os.clock()then return false,'cooldown'end
+  clearFX()
   token+=1;local castToken=token
   active=entry.name;self.ActiveIllusionarySkill=active
   cooldowns[active]=os.clock()+entry.duration+.2
   ui:UpdateItem(active,workspace:GetServerTimeNow()+entry.duration+.2,entry.duration+.2)
   self.IllusionarySkillStats.casts[active]=(self.IllusionarySkillStats.casts[active]or 0)+1
   update()
+  skillVisual(entry,settings)
   thread=task.defer(function()
    local ok,err=pcall(skills[entry.name].Activate)
    pcall(skills[entry.name].Cancel)
@@ -410,7 +466,9 @@ return Controller
 end)()
 -- END_ILLUSIONARY_CONTROLLER
 
-local Module={Names={'ASTRAIOS','Monarch','LEVIATHAN','Tomorrow.','Oppression','Lamenthyr','Eden','Illusionary'},Version='2026-10-25-ill-walk1'}
+
+
+local Module={Names={'ASTRAIOS','Monarch','LEVIATHAN','Tomorrow.','Oppression','Lamenthyr','Eden','Illusionary'},Version='2026-10-25-ill-fx1'}
 local environment=getgenv()
 environment.__AuraExchangeOwnership=environment.__AuraExchangeOwnership or setmetatable({},{__mode='k'})
 local ownership=environment.__AuraExchangeOwnership
@@ -962,6 +1020,16 @@ function Module.new(base,readData)
      assert(a,'Illusionary animation anchor missing')
      executable=executable:sub(1,a-1)..'__AuraObjectTrack()'..executable:sub(b+1)
     end
+    if name=='Illusionary' and node.id==data.illusionaryFXRoot then
+     local ending=assert(executable:find('FXRemote.OnClientEvent:Connect',1,true),'FX dispatcher anchor missing')
+     executable=executable:sub(1,ending-1)..'return {Projectile=ProjectileBarrage,Pawn=MovePawn,Queen=MoveQueen,RookPull=RookPull,RookExplode=RookExplode}'
+     executable=executable:gsub('task%.','__AuraFXTask.')
+     executable=executable:gsub('Bullet:Clone%(%)','__AuraClone(Bullet)')
+     executable=executable:gsub('script:WaitForChild%("([^"]+)"%):Clone%(%)','__AuraClone(script:WaitForChild("%1"))')
+     executable=executable:gsub('script%.Explode:Clone%(%)','__AuraClone(script.Explode)')
+     executable=executable:gsub('p19:Clone%(%)','__AuraClone(p19)')
+     executable=executable:gsub('child:Clone%(%)','__AuraClone(child)')
+    end
     if name=='Illusionary' and node.id==data.illusionarySkillRoot then
      executable=executable:gsub('require%(Modules:WaitForChild%("CameraShaker"%)%)','__AuraCameraShaker')
      executable=executable:gsub('script:WaitForChild%("ScreenFX"%):Clone%(%)','__AuraClone(script:WaitForChild("ScreenFX"))')
@@ -996,7 +1064,23 @@ function Module.new(base,readData)
     return loadstring(executable,'AuraExchange/'..name..'/'..node.id)
    end
    makeEnvironment=function(obj)
-    return setmetatable({script=obj,game=realGame,task=taskProxy,wait=task.wait,spawn=taskProxy.spawn,delay=taskProxy.delay,require=managedRequire,__AuraRunService=rsProxy,
+    local fxTaskProxy={wait=task.wait}
+    for _,method in ipairs({'spawn','defer','delay'})do
+     fxTaskProxy[method]=function(...)
+      local args=table.pack(...);local delay=method=='delay'and args[1]or nil
+      local fn=args[delay and 2 or 1];local first=delay and 3 or 2
+      local runner=function()
+       if not self.Alive then return end
+       local ok,err=pcall(fn,table.unpack(args,first,args.n))
+       if not ok and self.Alive then errorItem(0,'IllusionaryFXTask',err)end
+      end
+      local thread=delay and task.delay(delay,runner)or task[method](runner)
+      table.insert(self.Threads,thread)
+      if self.IllusionaryFXThreads then table.insert(self.IllusionaryFXThreads,thread)end
+      return thread
+     end
+    end
+    return setmetatable({script=obj,game=realGame,task=taskProxy,wait=task.wait,spawn=taskProxy.spawn,delay=taskProxy.delay,require=managedRequire,__AuraRunService=rsProxy,__AuraFXTask=fxTaskProxy,
      __AuraObjectTrack=function()
       for index,t in ipairs(data.tracks or {})do if t.id:match('%d+')=='135387970626232'then
        local deadline=os.clock()+10
@@ -1020,7 +1104,7 @@ function Module.new(base,readData)
      __AuraConnect=function(signal,fn)return connect(signal,fn,false)end,
      __AuraOnce=function(signal,fn)return connect(signal,fn,true)end,
      __AuraWrap=function(fn)return function(...)return taskProxy.spawn(fn,...)end end,
-     __AuraClone=function(obj)local clone=obj:Clone();table.insert(self.Created,clone);return clone end,
+     __AuraClone=function(source)local clone=source:Clone();table.insert(self.Created,clone);if obj==objects[data.illusionaryFXRoot]and self.IllusionaryFXObjects then table.insert(self.IllusionaryFXObjects,clone)end;return clone end,
      __AuraChatConnect=function(fn)
       self.SayEden=function(_,text,monster)
        if not self.Alive then return end
@@ -1091,7 +1175,7 @@ function Module.new(base,readData)
    if name=='Illusionary' and target==game.Players.LocalPlayer.Character then
     local skills=managedRequire(objects[data.illusionarySkillRoot])
     local ui=managedRequire(objects[data.illusionaryNativeUIRoot])
-    IllusionaryController.install(self,skills,ui)
+    IllusionaryController.install(self,skills,ui,managedRequire(objects[data.illusionaryFXRoot]))
    end
    if name=='Eden' then
     local ui=objects[205]
@@ -1182,4 +1266,4 @@ env.exchang_illusionary_skill=function(name,settings)
 end
 env.exchang_aura('Illusionary')
 return manager
--- AURA_EXCHANGE_COMPLETE_ill_walk1
+-- AURA_EXCHANGE_COMPLETE_ill_fx1

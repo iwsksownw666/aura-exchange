@@ -1,0 +1,48 @@
+{
+  "ok": true,
+  "serverRemotesSent": false,
+  "compilation": [
+    {
+      "error": "",
+      "exit": 0,
+      "file": "outputs/aura_exchange_ill_fx_20261025/AuraExchange.luau"
+    },
+    {
+      "error": "",
+      "exit": 0,
+      "file": "outputs/aura_exchange_ill_fx_20261025/IllusionaryController.luau"
+    },
+    {
+      "error": "",
+      "exit": 0,
+      "file": "outputs/aura_exchange_ill_fx_20261025/example_exchang_aura.luau"
+    },
+    {
+      "error": "",
+      "exit": 0,
+      "file": "outputs/aura_exchange_ill_fx_20261025/exchang_aura_final.luau"
+    },
+    {
+      "error": "",
+      "exit": 0,
+      "file": "outputs/aura_exchange_ill_fx_20261025/evidence/illusionary_FXModule.original.luau"
+    },
+    {
+      "error": "",
+      "exit": 0,
+      "file": "outputs/aura_exchange_ill_fx_publish_20261025/main.luau"
+    },
+    {
+      "error": "",
+      "exit": 0,
+      "file": "outputs/aura_exchange_ill_fx_publish_20261025/loader.luau"
+    }
+  ],
+  "coverage": {
+    "F": "Original projectile resources, sound, Bezier movement, impact; local 20-shot schedule is not original server timing",
+    "E": "Original screen callback and aura Pawn icon particles; summoned Pawn model missing",
+    "V": "Original screen callback and aura Rook icon particles; summoned Rook model missing",
+    "R": "Original screen callback and aura Queen icon particles; summoned Queen model missing"
+  },
+  "runtime": "not executed; client disconnected; user requested delivery before retest"
+}

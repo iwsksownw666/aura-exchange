@@ -1,26 +1,15 @@
-# Aura Exchange - Illusionary and movement repair
+# Illusionary client FX - ill-fx1
 
-版本：2026-10-25-ill-walk1。八种光环按需下载，默认 Illusionary。
-
-~~~lua
-loadstring(game:HttpGet("https://raw.githubusercontent.com/iwsksownw666/aura-exchange/main/loader.luau?release=ill-walk1"))()
-~~~
+新增保存原版 ReplicatedStorage.illusionary_FXModule：113 对象，包含原弹幕、棋子特效回调、粒子和音效。
 
 ~~~lua
-getgenv().exchang_aura('Illusionary')
-getgenv().exchang_illusionary_skill('F')
-getgenv().exchang_aura('Eden')
-getgenv().exchang_aura('None')
+loadstring(game:HttpGet("https://raw.githubusercontent.com/iwsksownw666/aura-exchange/main/loader.luau?release=ill-fx1"))()
 ~~~
 
-支持 ASTRAIOS、Monarch、LEVIATHAN、Tomorrow.、Oppression、Lamenthyr、Eden、Illusionary。默认移动时持续播放光环动作，不再主动切换普通走路；Eden 继续使用已保存的专用走路动作。其他光环持续使用其保存的光环姿势/动作，不宣称存在未取得的专用走路资源。模块选项 PreserveLocomotion=true 可恢复旧的让出移动动画行为。Eden 手机按钮未修改。
+F 接入原 Bullet、BulletSound、Bezier 轨迹和爆破粒子；本地调度为施放后 2 秒开始、20 发、间隔 0.05 秒。此调度参考现有屏幕回调时间，尚未对照原装备者实测，不宣称原服务端发射时序一致。目标为鼠标指向、默认限制 200 studs；脚本可传 TargetPosition=Vector3。
 
-Illusionary 来源：Spike1145141919810；1108 个角色对象、两份动画、10 秒动态记录、效果脚本与依赖均已保存。31 个标题文字使用保存的原内容、字体、尺寸和 OriginalPosition；修复抓到闪烁中途造成的字母隐藏、临时字位被作为原始字位的问题，动态仍由原 MainScript 执行。随机闪烁的瞬时结果不会与另一个角色同步。人物原动画 109536481760521，物体原动画 135387970626232。
+E/R/V 保留现有原屏幕回调，并触发光环自带 Pawn/Queen/Rook 图标粒子。原 MovePawn/MoveQueen/RookPull/RookExplode 回调与依赖资源已保存；完整技能棋子模型目前未取得，因此本版尚未创建这些召唤物。之后由原装备者释放技能补抓，不以过场模型代替。
 
-四技能使用原 AuraSkillClient 的 Activate/Cancel 回调和原生 SkillUI：F - you belong here.；E - wake up.；R - no, not yet.；V - you are a puppet.。原客户端回调提供闪屏、震动和对应时间序列。技能栏冷却是本地回放防重叠时长。未取得的服务端召唤物、技能独立动画/粒子调度、伤害、状态绑定与原版冷却不在本版覆盖范围内；不声称技能完整一比一。按用户要求先修已取得内容。
+八光环、文字和移动修复沿用上一版。Eden 未更改。所有新增表现仅客户端播放，不发送技能远程、不产生服务端伤害。
 
-Eden 六技能与此前一样，Q/E/F/V/R/T。Eden 音效为游戏通用资源，专用原声未确认。
-
-发布入口约 70 KB；默认 Illusionary 资源约 4.21 MB。38 项内嵌资源均无损提取，manifest.json 记录逐项比对与 SHA256。读取固定版本 GitHub 或 jsDelivr，校验完整长度和 JSON。更换光环时按需下载、本次执行期间缓存；需要 R6 与 executor 的 writefile/getcustomasset 等缓存接口。
-
-验证：illusionary_walk_validation.json 包含八光环实际移动、31 文字对象比对、四技能客户端回调、取消与切换清理。原装备者离服后的文字比对使用提前保留的原快照。compile_validation.json 仅代表语法编译。手机实机及 Studio 导入未验证。
+停止、取消技能或切换光环时清理新增弹幕、音效、任务。编译及运行验证见对应 validation.json；缺少游戏内报告表示未完成本版运行验收。
